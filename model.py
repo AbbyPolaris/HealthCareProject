@@ -25,7 +25,7 @@ model.Q = Param()
 model.s = Param()
 
 # variables here
-model.xn_n = Var(model.Nodes, Model.Nodes, within=Binary)
+model.xn_n = Var(model.Nodes, model.Nodes, within=Binary)
 model.y = Var(model.BDCs, within=Binary)
 model.zn_n = Var(model.Nodes, model.Nodes, within=NonNegativeIntegers)
 model.U = Var(model.Hospitals, within=NonNegativeReals)
@@ -122,7 +122,7 @@ model.arrival_time1 = Constraint(model.Hospitals, rule=arrival_time1_rule)
 
 
 def arrival_time2_rule(m, j):
-    return m.v[j] <= sum(m.tn_n[i, j] * m.xn_n[i, j] + m.v[i] for i in m.Hospitals)
+    return m.v[j] <= sum(m.tn_n[i, j] * m.xn_n[i, j] + m.v[i] for i in m.Hospitals if i!=j)
 
 
 model.arrival_time2 = Constraint(model.Hospitals, rule=arrival_time2_rule)

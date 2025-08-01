@@ -30,3 +30,18 @@ param:  Hospitals: e   b:=
         15 35 70
         16 40 80
         17 30 60 ;
+
+set Nodes := 
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+Cankaya_FBC
+Yenimahalle_FBC
+Altindag_MBC
+Cankaya_MBC
+Etimesgut_MBC
+Golbasi_MBC
+Kecioren_MBC
+Mamak_MBC
+Polatli_MBC
+Pursaklar_MBC
+Sincan_MBC
+Yenimahalle_MBC ;

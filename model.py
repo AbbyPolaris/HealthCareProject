@@ -41,7 +41,7 @@ def hospital_visited_once_rule(m, j):  # each hospital mus be visited exactly on
         sum(m.xn_n[i, j] for i in m.Hospitals if i != j) == 1
 
 
-model.hospital_visited_once = Constraint(model.Hospitals, hospital_visited_once_rule)
+model.hospital_visited_once = Constraint(model.Hospitals, rule=hospital_visited_once_rule)
 
 
 def subtour_elimination1_rule(m, i, j):
@@ -143,11 +143,11 @@ model.earliness = Constraint(model.Hospitals, rule=earliness_rule)
 
 
 def objective_function_cost_rule(m):
-    return sum(m.g[d] * m.y[d] for d in m.BDCS) + sum(m.u * m.tn_n[i, j] * (m.zn_n[i, j] / m.Q) for i in m.Nodes for j in m.Nodes )
+    return sum(m.g[d] * m.y[d] for d in m.BDCs) + sum(m.u * m.tn_n[i, j] * (m.zn_n[i, j] / m.Q) for i in m.Nodes for j in m.Nodes )
 
 
 def objective_function_punctuality_rule(m):
-    return sum(m.EE[i] for i in m.Hospitals) + sum(m.GG for i in m.Hospitals)
+    return sum(m.EE[i] for i in m.Hospitals) + sum(m.GG[i] for i in m.Hospitals)
 
 
 model.obj1 = Objective(rule=objective_function_cost_rule, sense=minimize)

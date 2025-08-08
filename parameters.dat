@@ -47,10 +47,10 @@ Sincan_MBC
 Yenimahalle_MBC ;
 
 
-param u: 500;
-param D: 5;
-param Q: 100;
-
+param u := 500 ;
+param D := 5 ;
+param Q := 100 ;
+param s := 17 ;
 
 
 param tn_n :   

@@ -47,10 +47,18 @@ Sincan_MBC
 Yenimahalle_MBC ;
 
 
+set OpenBDCs :=
+Etimesgut_MBC
+Polatli_MBC
+Sincan_MBC
+;
+
 param u := 500 ;
 param D := 5 ;
 param Q := 100 ;
 param s := 17 ;
+
+
 
 
 param tn_n :   

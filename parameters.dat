@@ -47,6 +47,12 @@ Sincan_MBC
 Yenimahalle_MBC ;
 
 
+param u: 500;
+param D: 5;
+param Q: 100;
+
+
+
 param tn_n :   
                 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  Cankaya_FBC  Yenimahalle_FBC  Altindag_MBC  Cankaya_MBC  Etimesgut_MBC  Golbasi_MBC  Kecioren_MBC  Mamak_MBC  Polatli_MBC  Pursaklar_MBC  Sincan_MBC  Yenimahalle_MBC :=
 1             0   15  20  12  25  30  18  22  40  35  28  33  50  45  38  42  55      10              18              25            8             30            35           20           28          60             32           40              15

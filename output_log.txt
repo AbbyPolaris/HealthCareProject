@@ -1,0 +1,52 @@
+Min obj1: 1356600.0000, Obj2 at obj1 min: 88.0000 (tc=optimal, status=ok)
+Min obj2: 28.0000, Obj1 at obj2 min: 1887200.0000 (tc=optimal, status=ok)
+   Epsilon |         Obj1 |         Obj2 |      Slack |  Termination |     Status
+---------------------------------------------------------------------------
+   28.0000 | 1878200.0000 |      28.0000 |     0.0000 |      optimal |         ok
+   34.6667 | 1869200.0000 |      34.6667 |     0.0000 |      optimal |         ok
+   41.3333 | 1787200.0000 |      41.3333 |    -0.0000 |      optimal |         ok
+   48.0000 | 1559600.0000 |      48.0000 |     0.0000 |      optimal |         ok
+   54.6667 | 1555400.0000 |      54.0000 |     0.6667 |      optimal |         ok
+   61.3333 | 1545600.0000 |      59.0000 |     2.3333 |      optimal |         ok
+   68.0000 | 1510600.0000 |      66.0000 |     2.0000 |      optimal |         ok
+   74.6667 | 1507800.0000 |      72.0000 |     2.6667 |      optimal |         ok
+   81.3333 | 1366300.0000 |      78.0000 |     3.3333 |      optimal |         ok
+   88.0000 | 1356600.0000 |      88.0000 |     0.0000 |      optimal |         ok
+   
+   Epsilon |         Obj1 |         Obj2 |      Slack |  Termination |     Status
+---------------------------------------------------------------------------
+1356600.0000 | 1356600.0000 |      88.0000 |     0.0000 |      optimal |         ok
+1415555.5556 | 1369100.0000 |      78.0000 | 46455.5556 |      optimal |         ok
+1474511.1111 | 1383700.0000 |      78.0000 | 90811.1111 |      optimal |         ok
+1533466.6667 | 1510600.0000 |      66.0000 | 22866.6667 |      optimal |         ok
+1592422.2222 | 1589200.0000 |      44.0000 |  3222.2222 |      optimal |         ok
+1651377.7778 | 1589200.0000 |      44.0000 | 62177.7778 |      optimal |         ok
+1710333.3333 | 1689200.0000 |      44.0000 | 21133.3333 |      optimal |         ok
+1769288.8889 | 1761600.0000 |      43.0000 |  7688.8889 |      optimal |         ok
+1828244.4444 | 1787200.0000 |      38.0000 | 41044.4444 |      optimal |         ok
+1887200.0000 | 1887200.0000 |      28.0000 |     0.0000 |      optimal |         ok
+
+Unique Pareto solutions found: 17
+         obj1       obj2  ...  termination  constrained_obj_sense
+0   1878200.0  28.000000  ...      optimal                    min
+1   1869200.0  34.666667  ...      optimal                    min
+2   1787200.0  41.333333  ...      optimal                    min
+3   1559600.0  48.000000  ...      optimal                    min
+4   1555400.0  54.000000  ...      optimal                    min
+5   1545600.0  59.000000  ...      optimal                    min
+6   1510600.0  66.000000  ...      optimal                    min
+7   1507800.0  72.000000  ...      optimal                    min
+8   1366300.0  78.000000  ...      optimal                    min
+9   1356600.0  88.000000  ...      optimal                    min
+10  1369100.0  78.000000  ...      optimal                    min
+11  1383700.0  78.000000  ...      optimal                    min
+12  1589200.0  44.000000  ...      optimal                    min
+13  1689200.0  44.000000  ...      optimal                    min
+14  1761600.0  43.000000  ...      optimal                    min
+15  1787200.0  38.000000  ...      optimal                    min
+16  1887200.0  28.000000  ...      optimal                    min
+
+[17 rows x 6 columns]
+Plot saved as cost_vs_epsilon.png
+Plot saved as punctuality_vs_epsilon.png
+Pareto plot saved as pareto_front.png

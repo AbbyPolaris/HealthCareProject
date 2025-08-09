@@ -4,9 +4,13 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from model import model  # your Pyomo model file
+import sys
+
+log_file = open('output_log.txt', 'w')
+sys.stdout = log_file
 
 # ---------------- Parameters ----------------
-DATA_FILE = '/home/abby/HCProj/parameters.dat'
+DATA_FILE = 'parameters.dat'
 SOLVER_NAME = 'glpk'
 STEPS_NUMBER = 10  # number of epsilon steps
 
@@ -116,9 +120,9 @@ def plot_obj_vs_epsilon(df, main_obj_name, filename):
     """
     plt.figure(figsize=(7, 5))
     plt.plot(df['epsilon'], df[main_obj_name], marker='o', linestyle='-', color='tab:blue')
-    plt.xlabel('Epsilon (constraint bound)')
-    plt.ylabel(f'{main_obj_name} value')
-    plt.title(f'{main_obj_name} vs. Epsilon')
+    plt.xlabel(f'Epsilon (constraint bound), {'cost' if main_obj_name== 'obj1' else'punctuality'}<= epsilon')
+    plt.ylabel(f'{'cost' if main_obj_name== 'obj1' else'punctuality'} value')
+    plt.title(f'{'cost' if main_obj_name=='obj1' else 'punctuality'} vs. Epsilon')
     plt.grid(True)
     plt.tight_layout()
     plt.savefig(filename, dpi=300)
@@ -136,8 +140,8 @@ def plot_pareto_front(df, filename='pareto_front.png'):
     sorted_df = df.sort_values(by='obj1')  # sort by obj1 for a nicer line
     plt.plot(sorted_df['obj1'], sorted_df['obj2'], linestyle='--', color='orange', label='Pareto Frontier')
 
-    plt.xlabel('Objective 1')
-    plt.ylabel('Objective 2')
+    plt.xlabel('cost')
+    plt.ylabel('earliness and tardiness')
     plt.title('Pareto Front')
     plt.legend()
     plt.grid(True)
@@ -169,12 +173,14 @@ def main():
     print(df_unique[['obj1', 'obj2', 'epsilon', 'slack', 'termination', 'constrained_obj_sense']])
 
     # Plot and save obj1 vs epsilon
-    plot_obj_vs_epsilon(df1, main_obj_name='obj1', filename='obj1_vs_epsilon.png')
+    plot_obj_vs_epsilon(df1, main_obj_name='obj1', filename='cost_vs_epsilon.png')
 
     # Plot and save obj2 vs epsilon
-    plot_obj_vs_epsilon(df2, main_obj_name='obj2', filename='obj2_vs_epsilon.png')
+    plot_obj_vs_epsilon(df2, main_obj_name='obj2', filename='punctuality_vs_epsilon.png')
         
     plot_pareto_front(df_unique, filename='pareto_front.png')
+    sys.stdout = sys.__stdout__
+    log_file.close()
 
 if __name__ == "__main__":
     main()

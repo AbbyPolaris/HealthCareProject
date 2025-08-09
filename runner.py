@@ -12,7 +12,7 @@ sys.stdout = log_file
 # ---------------- Parameters ----------------
 DATA_FILE = 'parameters.dat'
 SOLVER_NAME = 'glpk'
-STEPS_NUMBER = 10  # number of epsilon steps
+STEPS_NUMBER = 10 # number of epsilon steps
 
 
 # -------------- Load Data & Initialize --------------
@@ -120,7 +120,7 @@ def plot_obj_vs_epsilon(df, main_obj_name, filename):
     """
     plt.figure(figsize=(7, 5))
     plt.plot(df['epsilon'], df[main_obj_name], marker='o', linestyle='-', color='tab:blue')
-    plt.xlabel(f'Epsilon (constraint bound), {'cost' if main_obj_name== 'obj1' else'punctuality'}<= epsilon')
+    plt.xlabel(f'Epsilon (constraint bound), {'cost' if main_obj_name== 'obj2' else'punctuality'}<= epsilon')
     plt.ylabel(f'{'cost' if main_obj_name== 'obj1' else'punctuality'} value')
     plt.title(f'{'cost' if main_obj_name=='obj1' else 'punctuality'} vs. Epsilon')
     plt.grid(True)

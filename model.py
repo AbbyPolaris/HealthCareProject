@@ -25,13 +25,13 @@ model.Q = Param()
 model.s = Param()
 
 # variables here
-model.xn_n = Var(model.Nodes, model.Nodes, within=Binary)
-model.y = Var(model.BDCs, within=Binary)
-model.zn_n = Var(model.Nodes, model.Nodes, within=NonNegativeIntegers)
-model.U = Var(model.Hospitals, within=NonNegativeReals)
-model.v = Var(model.Hospitals, within=NonNegativeReals)
-model.GG = Var(model.Hospitals, within=NonNegativeReals)
-model.EE = Var(model.Hospitals, within=NonNegativeReals)
+model.xn_n = Var(model.Nodes, model.Nodes, within=Binary, initialize=0)
+model.y = Var(model.BDCs, within=Binary, initialize= 0)
+model.zn_n = Var(model.Nodes, model.Nodes, within=NonNegativeIntegers, initialize=0.0)
+model.U = Var(model.Hospitals, within=NonNegativeReals, initialize=0.0)
+model.v = Var(model.Hospitals, within=NonNegativeReals, initialize=0.0)
+model.GG = Var(model.Hospitals, within=NonNegativeReals, initialize=0.0)
+model.EE = Var(model.Hospitals, within=NonNegativeReals, initialize=0.0)
 
 
 # constraints here, we write m for model
@@ -143,7 +143,7 @@ model.earliness = Constraint(model.Hospitals, rule=earliness_rule)
 
 
 def objective_function_cost_rule(m):
-    return sum(m.g[d] * m.y[d] for d in m.BDCs) + sum(m.u * m.tn_n[i, j] * (m.zn_n[i, j] / m.Q) for i in m.Nodes for j in m.Nodes )
+    return sum(m.g[d] * m.y[d] for d in m.BDCs) + sum(m.u * m.tn_n[i, j] * (m.zn_n[i, j] / m.Q) for i in m.Nodes for j in m.Nodes if i!=j)
 
 
 def objective_function_punctuality_rule(m):
@@ -152,8 +152,4 @@ def objective_function_punctuality_rule(m):
 
 model.obj1 = Objective(rule=objective_function_cost_rule, sense=minimize)
 model.obj2 = Objective(rule=objective_function_punctuality_rule, sense=minimize)
-
-
-
-
 
